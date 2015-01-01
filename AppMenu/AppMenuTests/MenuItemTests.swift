@@ -14,4 +14,11 @@ class MenuItemTests: XCTestCase {
         let menuItem = MenuItem(title: "Contributions")
         XCTAssertEqual(menuItem.title, "Contributions", "A title should always be present")
     }
+    
+    func testThatMenuItemCanBeAssignedASubTitle() {
+        let menuItem = MenuItem(title: "Contributions")
+        menuItem.subTitle = "Repos contributed to"
+        
+        XCTAssertEqual(menuItem.subTitle!, "Repos contributed to", "Subtitle should be what we assigned")
+    }
 }
