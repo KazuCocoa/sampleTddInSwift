@@ -21,4 +21,11 @@ class MenuItemTests: XCTestCase {
         
         XCTAssertEqual(menuItem.subTitle!, "Repos contributed to", "Subtitle should be what we assigned")
     }
+    
+    func testThatMenuItemCanBeAssignedAnIconName() {
+        let menuItem = MenuItem(title: "Contributions")
+        menuItem.iconName = "iconContributions"
+        
+        XCTAssertEqual(menuItem.iconName!, "iconContributions", "Icon name should be what we assigned")
+    }
 }
