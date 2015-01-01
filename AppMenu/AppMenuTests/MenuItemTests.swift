@@ -17,6 +17,11 @@ class MenuItemTests: XCTestCase {
         menuItem = MenuItem(title: "Contributions")
     }
     
+    override func tearDown() {
+        super.tearDown()
+        // do something
+    }
+    
     func testThatMenuItemHasATitle() {
         XCTAssertEqual(menuItem!.title, "Contributions", "A title should always be present")
     }
