@@ -10,6 +10,9 @@
 		725095D31A553F5E00DC2DBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095D21A553F5E00DC2DBB /* AppDelegate.swift */; };
 		725095DA1A553F5E00DC2DBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725095D91A553F5E00DC2DBB /* Images.xcassets */; };
 		725095DD1A553F5E00DC2DBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725095DB1A553F5E00DC2DBB /* LaunchScreen.xib */; };
+		725095F31A55AA1F00DC2DBB /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095F21A55AA1F00DC2DBB /* MenuItemTests.swift */; };
+		725095F71A55ABA400DC2DBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095F61A55ABA400DC2DBB /* MenuItem.swift */; };
+		725095F81A55ABA400DC2DBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095F61A55ABA400DC2DBB /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,8 @@
 		725095DC1A553F5E00DC2DBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		725095E21A553F5F00DC2DBB /* AppMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		725095E71A553F5F00DC2DBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		725095F21A55AA1F00DC2DBB /* MenuItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
+		725095F61A55ABA400DC2DBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 				725095D91A553F5E00DC2DBB /* Images.xcassets */,
 				725095DB1A553F5E00DC2DBB /* LaunchScreen.xib */,
 				725095D01A553F5E00DC2DBB /* Supporting Files */,
+				725095F61A55ABA400DC2DBB /* MenuItem.swift */,
 			);
 			path = AppMenu;
 			sourceTree = "<group>";
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				725095E61A553F5F00DC2DBB /* Supporting Files */,
+				725095F21A55AA1F00DC2DBB /* MenuItemTests.swift */,
 			);
 			path = AppMenuTests;
 			sourceTree = "<group>";
@@ -203,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725095D31A553F5E00DC2DBB /* AppDelegate.swift in Sources */,
+				725095F71A55ABA400DC2DBB /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725095F31A55AA1F00DC2DBB /* MenuItemTests.swift in Sources */,
+				725095F81A55ABA400DC2DBB /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -347,6 +358,7 @@
 				INFOPLIST_FILE = AppMenuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppMenu.app/AppMenu";
 			};
 			name = Debug;
@@ -355,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
