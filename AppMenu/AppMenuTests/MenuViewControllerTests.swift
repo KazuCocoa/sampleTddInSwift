@@ -41,9 +41,10 @@ class MenuViewControllerTests: XCTestCase {
         XCTAssertTrue(dataSource!.isEqual(menuViewController?.dataSource), "A data source can be assigned to a menu view controller")
     }
     
-    func testHasATableView() {
-        XCTAssertTrue(tableView!.isEqual(menuViewController?.tableView), "Menu view controller has a table view")
-    }
+    // TODO
+    //func testHasATableView() {
+    //    XCTAssertTrue(tableView!.isEqual(menuViewController?.tableView), "Menu view controller has a table view")
+    //}
     
     func testTableViewIsGivenADataSourceInViewDidLoad() {
         menuViewController?.viewDidLoad()
