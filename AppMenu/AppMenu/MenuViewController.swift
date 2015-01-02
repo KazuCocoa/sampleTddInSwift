@@ -12,6 +12,7 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var dataSource: MenuTableDataSource?
+    var tapHandlerBuilder: MenuItemTapHandlerBuilder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,36 +40,10 @@ class MenuViewController: UIViewController {
     func didSelectMenuItemNotification(notification: NSNotification?) {
         var menuItem: MenuItem? = notification!.object as? MenuItem
         
-        if menuItem != nil {
-            var tapHandler: UIViewController?
-            
-            switch menuItem!.tapHandlerName! {
-            case "ContributionsViewController":
-                tapHandler =
-                    ContributionsViewController(
-                        nibName: "ContributionsViewController",
-                        bundle: nil)
-                
-            case "RepositoriesViewController":
-                tapHandler =
-                    RepositoriesViewController(
-                        nibName: "RepositoriesViewController",
-                        bundle: nil)
-                
-            case "PublicActivityViewController":
-                tapHandler =
-                    PublicActivityViewController(
-                        nibName: "PublicActivityViewController",
-                        bundle: nil)
-                
-            default:
-                tapHandler = nil
-            }
-            
-            if tapHandler != nil {
-                self.navigationController?.pushViewController(tapHandler!,
+        if let tapHandler =
+            tapHandlerBuilder?.tapHandlerForMenuItem(menuItem) {
+                self.navigationController?.pushViewController(tapHandler,
                     animated: true)
-            }
         }
     }
 

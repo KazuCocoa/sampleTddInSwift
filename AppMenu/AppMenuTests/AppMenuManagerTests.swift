@@ -22,6 +22,8 @@ class AppMenuManagerTests: XCTestCase {
         fakeMenuItemBuilder = FakeMenuItemBuilder()
         menuManager?.menuItemsReader = fakeMenuItemsReader
         menuManager?.menuItemBuilder = fakeMenuItemBuilder
+        menuManager?.objectConfigurator = ObjectConfigurator()
+
     }
     
     func testReturnsNilIfMetadataCouldNotBeRead() {

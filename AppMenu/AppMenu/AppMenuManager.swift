@@ -12,7 +12,8 @@ import UIKit
 class AppMenuManager {
     var menuItemsReader: MenuItemsReader? = nil
     var menuItemBuilder: MenuItemBuilder? = nil
-    
+    var objectConfigurator: ObjectConfigurator? = nil
+
     func menuViewController() -> MenuViewController? {
         let (metadata, metadataError) =
         menuItemsReader!.readMenuItems()
@@ -56,13 +57,10 @@ class AppMenuManager {
     private func menuViewControllerFromMenuItems(menuItems: [MenuItem])
         -> MenuViewController
     {
-        let dataSource = MenuTableDefaultDataSource()
-        dataSource.menuItems = menuItems
+        let menuViewController = objectConfigurator?.menuViewController()
+        let dataSource = menuViewController!.dataSource
+        dataSource?.setMenuItems(menuItems)
         
-        let menuViewController =
-        MenuViewController(nibName: "MenuViewController", bundle: nil)
-        
-        menuViewController.dataSource = dataSource
-        return menuViewController
+        return menuViewController!
     }
 }

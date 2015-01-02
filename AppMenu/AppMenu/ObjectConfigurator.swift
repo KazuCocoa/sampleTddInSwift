@@ -16,7 +16,18 @@ class ObjectConfigurator {
         menuItemsPlistReader.plistToReadFrom = "menuItems"
         appMenuManager.menuItemsReader = menuItemsPlistReader
         appMenuManager.menuItemBuilder = MenuItemDefaultBuilder()
-        
+        appMenuManager.objectConfigurator = self
         return appMenuManager
+    }
+    
+    func menuViewController() -> MenuViewController {
+        let menuViewController
+        = MenuViewController(nibName: "MenuViewController",
+            bundle: nil)
+        
+        menuViewController.dataSource = MenuTableDefaultDataSource()
+        menuViewController.tapHandlerBuilder = MenuItemTapHandlerBuilder()
+        
+        return menuViewController
     }
 }

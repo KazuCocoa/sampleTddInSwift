@@ -25,5 +25,20 @@ class ObjectConfiguratorTests: XCTestCase {
             "App menu manager has a menu items reader")
         XCTAssertTrue(appMenuManager?.menuItemBuilder != nil,
             "App menu manager has a menu item builder")
+        XCTAssertNotNil(appMenuManager?.objectConfigurator,
+            "App menu manager has an object configurator")
+    }
+    
+    func testConfiguresMenuViewControllerCorrectly() {
+        let menuViewController = objectConfigurator?.menuViewController()
+        
+        XCTAssertNotNil(menuViewController,
+            "Menu view controller is not nil")
+        
+        XCTAssertNotNil(menuViewController?.dataSource,
+            "Menu view controller has a data source")
+        
+        XCTAssertNotNil(menuViewController?.tapHandlerBuilder,
+            "Menu view controller has a tap handler builder")
     }
 }
