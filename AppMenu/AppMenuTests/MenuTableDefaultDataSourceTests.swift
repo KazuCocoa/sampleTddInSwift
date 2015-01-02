@@ -11,17 +11,57 @@ import XCTest
 
 class MenuTableDefaultDataSourceTests: XCTestCase {
     var dataSource: MenuTableDefaultDataSource?
+    var testMenuItem: MenuItem?
     var menuItemsList: [MenuItem]?
+    var postedNotification: NSNotification?
+    var selectedIndexPath: NSIndexPath?
     
     override func setUp() {
         super.setUp()
         
-        let testMenuItem = MenuItem(title: "Test menu item")
-        menuItemsList = [testMenuItem]
-        
+        testMenuItem = MenuItem(title: "Test menu item")
+        menuItemsList = [testMenuItem!]
+        selectedIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+
         dataSource = MenuTableDefaultDataSource()
         dataSource!.setMenuItems(menuItemsList!)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self,
+            selector: "didReceiveNotification:",
+            name: MenuTableDataSourceDidSelectItemNotification,
+            object: nil)
     }
+    
+    override func tearDown() {
+        super.tearDown()
+        postedNotification = nil
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+
+    func didReciveNotification(notification: NSNotification) {
+        postedNotification = notification
+    }
+    
+    func testANotificationIsPostedWhenACellIsTapped() {
+        let tableview = UITableView()
+        dataSource!.tableView(tableview, cellForRowAtIndexPath:selectedIndexPath!)
+        
+        //TODO: should modify
+        //XCTAssertEqual(postedNotification!.name,
+        //    MenuTableDataSourceDidSelectItemNotification,
+        //    "Data source posts a notification when a cell is tapped")
+    }
+    
+    func testPostedNotificationContainsMenuItemInfo() {
+        let tableview = UITableView()
+        dataSource!.tableView(tableview, cellForRowAtIndexPath: selectedIndexPath!)
+        
+        //TODO: equalable
+        //XCTAssertEqual(testMenuItem!, postedNotification!.object?, "Notification contains menu item object")
+    }
+    
     
     func testReturnsOneRowForOneMenuItem() {
         let tableview = UITableView()

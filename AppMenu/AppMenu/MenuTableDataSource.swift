@@ -8,6 +8,8 @@
 
 import UIKit
 
+let MenuTableDataSourceDidSelectItemNotification = "MenuTableDataSourceDidSelectItemNotification"
+
 protocol MenuTableDataSource : UITableViewDataSource {
     func setMenuItems(menuItems: [MenuItem])
 }
