@@ -37,7 +37,39 @@ class MenuViewController: UIViewController {
     }
     
     func didSelectMenuItemNotification(notification: NSNotification?) {
-        // Handle notification
+        var menuItem: MenuItem? = notification!.object as? MenuItem
+        
+        if menuItem != nil {
+            var tapHandler: UIViewController?
+            
+            switch menuItem!.tapHandlerName! {
+            case "ContributionsViewController":
+                tapHandler =
+                    ContributionsViewController(
+                        nibName: "ContributionsViewController",
+                        bundle: nil)
+                
+            case "RepositoriesViewController":
+                tapHandler =
+                    RepositoriesViewController(
+                        nibName: "RepositoriesViewController",
+                        bundle: nil)
+                
+            case "PublicActivityViewController":
+                tapHandler =
+                    PublicActivityViewController(
+                        nibName: "PublicActivityViewController",
+                        bundle: nil)
+                
+            default:
+                tapHandler = nil
+            }
+            
+            if tapHandler != nil {
+                self.navigationController?.pushViewController(tapHandler!,
+                    animated: true)
+            }
+        }
     }
 
 }

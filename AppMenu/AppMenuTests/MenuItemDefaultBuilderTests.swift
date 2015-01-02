@@ -9,8 +9,8 @@
 import UIKit
 import XCTest
 
-class MenuItemBuilderTests: XCTestCase {
-    var menuItemBuilder: MenuItemBuilder?
+class MenuItemDefaultBuilderTests: XCTestCase {
+    var menuItemBuilder: MenuItemDefaultBuilder?
     var fakeMenuItemsReader: FakeMenuItemsReader?
     var menuItems: [MenuItem]?
     var error: NSError?
@@ -18,24 +18,27 @@ class MenuItemBuilderTests: XCTestCase {
     override func setUp() {
         fakeMenuItemsReader = FakeMenuItemsReader()
         fakeMenuItemsReader!.missingTitle = true
-        let (metadata, _) = fakeMenuItemsReader!.readMenuItems()
         
-        menuItemBuilder = MenuItemBuilder()
+        let (metadata, _) =
+        fakeMenuItemsReader!.readMenuItems()
         
+        menuItemBuilder = MenuItemDefaultBuilder()
         (menuItems, error) =
             menuItemBuilder!.buildMenuItemsFromMetadata(metadata!)
     }
     
+
     func testCorrectErrorDomainIsReturnedWhenTitleIsMissing() {
         let errorDomain = error?.domain
-        XCTAssertEqual(errorDomain!, MenuItemBuilderErrorDomain,
+        XCTAssertEqual(errorDomain!,
+            MenuItemDefaultBuilderErrorDomain,
             "Correct error domain is returned")
     }
     
     func testMissingTitleErrorCodeIsReturnedWhenTitleIsMissing() {
         let errorCode = error?.code
         XCTAssertEqual(errorCode!,
-            MenuItemBuilderErrorCode.MissingTitle.rawValue,
+            MenuItemDefaultBuilderErrorCode.MissingTitle.rawValue,
             "Correct error code is returned")
     }
     
