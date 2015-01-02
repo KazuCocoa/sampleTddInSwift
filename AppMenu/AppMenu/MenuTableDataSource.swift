@@ -10,5 +10,4 @@ import UIKit
 
 protocol MenuTableDataSource : UITableViewDataSource {
     func setMenuItems(menuItems: [MenuItem])
-    
 }

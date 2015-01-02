@@ -16,11 +16,25 @@ class MenuTableDefaultDataSource : NSObject, MenuTableDataSource {
         self.menuItems = menuItems
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuItems!.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        return nil
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Ideally we should be reusing table view cells here
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
+        let menuItem = menuItems?[indexPath.row]
+        
+        //cell.textLabel.text = menuItem?.title
+        //cell.detailTextLabel.text = menuItem?.subTitle
+        //cell.imageView.image = UIImage(named: menuItem?.iconName)
+        //cell.accessoryType = .DisclosureIndicator
+        
+        return cell
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        return 1
     }
 }
