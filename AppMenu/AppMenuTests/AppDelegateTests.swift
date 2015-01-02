@@ -9,6 +9,18 @@
 import UIKit
 import XCTest
 
+class FakeAppMenuManager: AppMenuManager {
+    override func menuViewController() -> MenuViewController? {
+        return MenuViewController()
+    }
+}
+
+class FakeObjectConfigurator : ObjectConfigurator {
+    override func appMenuManager() -> AppMenuManager {
+        return FakeAppMenuManager()
+    }
+}
+
 class AppDelegateTests: XCTestCase {
     var window: UIWindow?
     var navController: UINavigationController?
@@ -34,34 +46,21 @@ class AppDelegateTests: XCTestCase {
             }
         }
         
-        appDelegate?.appMenuManager = FakeAppMenuManager()
+        class FakeObjectConfigurator : ObjectConfigurator {
+            override func appMenuManager() -> AppMenuManager {
+                return FakeAppMenuManager()
+            }
+        }
+        
+        appDelegate?.objectConfigurator = FakeObjectConfigurator()
         appDelegate?.application(nil, didFinishLaunchingWithOptions: nil)
         
         XCTAssertNil(window!.rootViewController,
             "Window's root VC shouldn't be set if menu VC can't be created")
     }
-    
-    func testWindowHasRootViewControllerIfMenuViewControllerIsCreated() {
-        class FakeAppMenuManager: AppMenuManager {
-            override func menuViewController() -> MenuViewController? {
-                return MenuViewController()
-            }
-        }
-        
-        appDelegate?.appMenuManager = FakeAppMenuManager()
-        appDelegate?.application(nil, didFinishLaunchingWithOptions: nil)
-        XCTAssertEqual(window!.rootViewController!, navController!,
-            "App delegate's nav controller should be the root view controller")
-    }
-    
+
     func testMenuViewControllerIsRootVCForNavigationController() {
-        class FakeAppMenuManager: AppMenuManager {
-            override func menuViewController() -> MenuViewController? {
-                return MenuViewController()
-            }
-        }
-        
-        appDelegate?.appMenuManager = FakeAppMenuManager()
+        appDelegate?.objectConfigurator = FakeObjectConfigurator()
         appDelegate?.application(nil, didFinishLaunchingWithOptions: nil)
         
         let topViewController =
