@@ -37,4 +37,11 @@ class MenuItemTests: XCTestCase {
         
         XCTAssertEqual(menuItem!.iconName!, "iconContributions", "Icon name should be what we assigned")
     }
+    
+    func testThatMenuItemCanBeAssignedATapHandlerName() {
+        menuItem!.tapHandlerName = "someViewController"
+        XCTAssertEqual(menuItem!.tapHandlerName!,
+            "someViewController",
+            "Tap handler name should be what we assigned")
+    }
 }

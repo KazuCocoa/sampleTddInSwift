@@ -12,6 +12,7 @@ class MenuItem {
     let title: String
     var subTitle: String?
     var iconName: String?
+    var tapHandlerName: String?
     
     init(title: String) {
         self.title = title
