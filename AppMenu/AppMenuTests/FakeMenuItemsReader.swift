@@ -18,14 +18,16 @@ class FakeMenuItemsReader : MenuItemsReader {
         
         let menuItem2 = ["title": "Menu Item 2",
             "subTitle": "Menu Item 2 subtitle",
-            "iconName": "iconName2"]
+            "iconName": "iconName2",
+            "tapHandlerName": "someViewController1"]
         
         return ([menuItem1, menuItem2], nil)
     }
     
     func menuItem1WithMissingTitle() -> [String : String] {
         return ["subTitle": "Menu Item 1 subtitle",
-            "iconName": "iconName1"]
+            "iconName": "iconName1",
+            "tapHandlerName": "someViewController2"]
     }
     
     func menuItem1WithNoMissingTitle() -> [String : String] {
