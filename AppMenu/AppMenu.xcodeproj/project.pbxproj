@@ -18,6 +18,8 @@
 		725095FD1A55B15200DC2DBB /* MenuItemsPlistReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095FC1A55B15200DC2DBB /* MenuItemsPlistReaderTests.swift */; };
 		725095FF1A55B35D00DC2DBB /* MenuItemsPlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095FE1A55B35D00DC2DBB /* MenuItemsPlistReader.swift */; };
 		725096001A55B35D00DC2DBB /* MenuItemsPlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725095FE1A55B35D00DC2DBB /* MenuItemsPlistReader.swift */; };
+		725096021A562CE600DC2DBB /* menuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725096011A562CE600DC2DBB /* menuItems.plist */; };
+		725096031A562CE600DC2DBB /* menuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725096011A562CE600DC2DBB /* menuItems.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 		725095F91A55B0F400DC2DBB /* MenuItemsReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsReader.swift; sourceTree = "<group>"; };
 		725095FC1A55B15200DC2DBB /* MenuItemsPlistReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsPlistReaderTests.swift; sourceTree = "<group>"; };
 		725095FE1A55B35D00DC2DBB /* MenuItemsPlistReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsPlistReader.swift; sourceTree = "<group>"; };
+		725096011A562CE600DC2DBB /* menuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuItems.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 				725095F61A55ABA400DC2DBB /* MenuItem.swift */,
 				725095F91A55B0F400DC2DBB /* MenuItemsReader.swift */,
 				725095FE1A55B35D00DC2DBB /* MenuItemsPlistReader.swift */,
+				725096011A562CE600DC2DBB /* menuItems.plist */,
 			);
 			path = AppMenu;
 			sourceTree = "<group>";
@@ -203,6 +207,7 @@
 			files = (
 				725095DD1A553F5E00DC2DBB /* LaunchScreen.xib in Resources */,
 				725095DA1A553F5E00DC2DBB /* Images.xcassets in Resources */,
+				725096021A562CE600DC2DBB /* menuItems.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725096031A562CE600DC2DBB /* menuItems.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
