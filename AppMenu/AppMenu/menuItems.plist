@@ -11,6 +11,8 @@
             <string>iconContributions</string>
             <key>featureName</key>
             <string>contributions</string>
+            <key>tapHandlerName</key>
+            <string>ContributionsViewController</string>
         </dict>
         <dict>
             <key>title</key>
@@ -21,6 +23,8 @@
             <string>iconRepositories</string>
             <key>featureName</key>
             <string>repositories</string>
+            <key>tapHandlerName</key>
+            <string>RepositoriesViewController</string>
         </dict>
         <dict>
             <key>title</key>
@@ -31,6 +35,8 @@
             <string>iconPublicActivity</string>
             <key>featureName</key>
             <string>publicActivity</string>
+            <key>tapHandlerName</key>
+            <string>PublicActivityViewController</string>
         </dict>
     </array>
 </plist>
