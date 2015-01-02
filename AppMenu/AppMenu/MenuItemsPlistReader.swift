@@ -25,13 +25,17 @@ class MenuItemsPlistReader: MenuItemsReader {
         if let filePath = bundle.pathForResource(plistToReadFrom, ofType: "plist") {
             fileContents = NSArray(contentsOfFile: filePath) as? [[String : String]]
         } else {
-            let errorMessage = "\(plistToReadFrom!).plist file doesn't exist in app bundle"
-            let userInfo = [NSLocalizedDescriptionKey: errorMessage]
-            error = NSError(domain: MenuItemsPlistReaderErrorDomain,
-                code: MenuItemsPlistReaderErrorCode.FileNotFound.rawValue,
-                userInfo: userInfo)
+            error = fileNotFoundError()
         }
         
         return (fileContents, error)
+    }
+    
+    func fileNotFoundError() -> NSError {
+        let errorMessage = "\(plistToReadFrom!).plist file doesn't exist in app bundle"
+        let userInfo = [NSLocalizedDescriptionKey: errorMessage]
+        return NSError(domain: MenuItemsPlistReaderErrorDomain,
+            code: MenuItemsPlistReaderErrorCode.FileNotFound.rawValue,
+            userInfo: userInfo)
     }
 }
