@@ -45,4 +45,18 @@ class MenuTableDefaultDataSourceTests: XCTestCase {
         XCTAssertEqual(numberOfSections, 1,
             "There should only be one section")
     }
+    
+    func testEachCellContainsTitleForRespectiveMenuItem() {
+        let testMenuItem = MenuItem(title: "Test menu item")
+        let dataSource = MenuTableDefaultDataSource()
+        dataSource.setMenuItems([testMenuItem])
+        
+        let firstMenuItem = NSIndexPath(forRow: 0, inSection: 0)
+        let tableview = UITableView()
+
+        let cell = dataSource.tableView(tableview, cellForRowAtIndexPath: firstMenuItem)
+        
+        XCTAssertEqual(cell.textLabel!.text!, "Test menu item", "A cell contains the title of a menu item it's representing")
+        
+    }
 }

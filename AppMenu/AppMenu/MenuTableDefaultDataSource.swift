@@ -26,10 +26,10 @@ class MenuTableDefaultDataSource : NSObject, MenuTableDataSource {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
         let menuItem = menuItems?[indexPath.row]
         
-        //cell.textLabel.text = menuItem?.title
-        //cell.detailTextLabel.text = menuItem?.subTitle
-        //cell.imageView.image = UIImage(named: menuItem?.iconName)
-        //cell.accessoryType = .DisclosureIndicator
+        cell.textLabel!.text = menuItem?.title
+        cell.detailTextLabel!.text = menuItem?.subTitle
+        //cell.imageView!.image = UIImage(named: menuItem?.iconName)
+        cell.accessoryType = .DisclosureIndicator
         
         return cell
     }
