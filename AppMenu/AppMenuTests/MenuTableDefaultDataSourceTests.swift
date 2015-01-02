@@ -47,16 +47,18 @@ class MenuTableDefaultDataSourceTests: XCTestCase {
     func testANotificationIsPostedWhenACellIsTapped() {
         let tableview = UITableView()
         dataSource!.tableView(tableview, cellForRowAtIndexPath:selectedIndexPath!)
+        //dataSource!.tableView(tableview, didSelectRowAtIndexPath:selectedIndexPath!)
         
         //TODO: should modify
         //XCTAssertEqual(postedNotification!.name,
-        //    MenuTableDataSourceDidSelectItemNotification,
-        //    "Data source posts a notification when a cell is tapped")
+        //  MenuTableDataSourceDidSelectItemNotification,
+        //"Data source posts a notification when a cell is tapped")
     }
     
     func testPostedNotificationContainsMenuItemInfo() {
         let tableview = UITableView()
-        dataSource!.tableView(tableview, cellForRowAtIndexPath: selectedIndexPath!)
+        dataSource!.tableView(tableview, cellForRowAtIndexPath:selectedIndexPath!)
+        //dataSource!.tableView(tableview, didSelectRowAtIndexPath:selectedIndexPath!)
         
         //TODO: equalable
         //XCTAssertEqual(testMenuItem!, postedNotification!.object?, "Notification contains menu item object")

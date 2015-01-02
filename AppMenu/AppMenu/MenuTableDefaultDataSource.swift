@@ -37,4 +37,12 @@ class MenuTableDefaultDataSource : NSObject, MenuTableDataSource {
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let menuItem = menuItems?[indexPath.row]
+        
+        let notification = NSNotification(name: MenuTableDataSourceDidSelectItemNotification, object:menuItem)
+        NSNotificationCenter.defaultCenter().postNotification(notification)
+    }
+    
 }
