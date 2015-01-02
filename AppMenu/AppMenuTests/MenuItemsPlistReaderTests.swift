@@ -9,31 +9,28 @@
 import XCTest
 
 class MenuItemsPlistReaderTests: XCTestCase {
+    var plistReader: MenuItemsPlistReader?
+    var metadata: [[String : String]]?
+    var error: NSError?
+    
+    override func setUp() {
+        super.setUp()
+        plistReader = MenuItemsPlistReader()
+        plistReader?.plistToReadFrom = "notFound"
+        (metadata, error) = plistReader!.readMenuItems()
+    }
     
     func testCorrectErrorDomainIsReturnedWhenPlistDoesNotExist() {
-        let plistReader = MenuItemsPlistReader()
-        plistReader.plistToReadFrom = "notFound"
-        
-        let (metadata, error) = plistReader.readMenuItems()
         let errorDomain = error?.domain
-        
         XCTAssertEqual(errorDomain!, MenuItemsPlistReaderErrorDomain, "Correct error domain is returned")
     }
     
     func testFaileNotFoundErrorCodeIsReturnedWhenPlistDoesNotExist() {
-        let plistReader = MenuItemsPlistReader()
-        plistReader.plistToReadFrom = "notFound"
-        
-        let (metadata, error) = plistReader.readMenuItems()
         let errorCode = error?.code
         XCTAssertEqual(errorCode!, MenuItemsPlistReaderErrorCode.FileNotFound.rawValue, "Correct error code is returned")
     }
     
     func testCorrectErrorDescriptionIsReturnedWhenPlistDoesNotExist() {
-        let plistReader = MenuItemsPlistReader()
-        plistReader.plistToReadFrom = "notFound"
-        
-        let (metadata, error) = plistReader.readMenuItems()
         let userInfo = error?.userInfo
         let description: String = userInfo![NSLocalizedDescriptionKey]! as String
         
