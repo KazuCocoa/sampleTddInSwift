@@ -9,13 +9,6 @@
 import XCTest
 
 class MenuItemsPlistReaderTests: XCTestCase {
-    func testErrorIsReturnedWhenPlistFileDoesNotExist() {
-        let plistReader = MenuItemsPlistReader()
-        plistReader.plistToReadFrom = "notFound"
-    
-        let (metadata, error) = plistReader.readMenuItems()
-        XCTAssertNotNil(error, "Error is returned when plist doesn't exist")
-    }
     
     func testCorrectErrorDomainIsReturnedWhenPlistDoesNotExist() {
         let plistReader = MenuItemsPlistReader()
