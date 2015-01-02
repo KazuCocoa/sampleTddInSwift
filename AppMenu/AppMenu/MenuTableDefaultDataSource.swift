@@ -28,6 +28,7 @@ class MenuTableDefaultDataSource : NSObject, MenuTableDataSource {
         
         cell.textLabel!.text = menuItem?.title
         cell.detailTextLabel!.text = menuItem?.subTitle
+        // TODO
         //cell.imageView!.image = UIImage(named: menuItem?.iconName)
         cell.accessoryType = .DisclosureIndicator
         
